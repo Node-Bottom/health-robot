@@ -8,10 +8,6 @@ app.get('/login', (req, res) => {
     res.sendFile(`${base}/login.html`);
   });
 
-app.get('/home', (req, res) => {
-    res.sendFile(`${base}/home.html`);
-  });
-
 app.get('/home1', (req, res) => {
     res.sendFile(`${base}/home2.html`);
   });
@@ -20,6 +16,9 @@ app.get('/home1', (req, res) => {
     res.sendFile(`${base}/registration.html`);
   });
   
+  app.get('/deviceregister', function (req, res) {
+    res.sendFile(`${base}/deviceregister.html`);
+  });
 app.get('/', function (req, res) {
     res.sendFile(`${base}/home.html`);
   });
