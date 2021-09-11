@@ -3,7 +3,8 @@ $('#footer').load('footer.html');
 
 
 const users = JSON.parse(localStorage.getItem('users')) || [];
-
+const USER_URL = `http://localhost:5001/api`;
+const DEVICE_URL = `http://localhost:5000/api`;
 
   $('#login').on('click', function() {
     const username = $('#username').val();
