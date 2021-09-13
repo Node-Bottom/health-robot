@@ -1,9 +1,27 @@
 $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
-const DEVICE_URL = 'http://localhost:5000/api';
-const USER_URL = 'http://localhost:5001/api';
+const USER_URL = `http://localhost:5001/api`;
+const DEVICE_URL = `http://localhost:5000/api`;
 const users = JSON.parse(localStorage.getItem('users')) || [];
+
+$.get(`${DEVICE_URL}/devices`)
+    .then(response => {
+        response.forEach(device => {
+
+                $('#devices tbody').append(`
+          <tr>
+            <td>${device.deviceid}</td>
+            <td>${device.devicename}</td>
+            <td>${device.devicelocation}</td>
+          </tr>`
+                );
+    })
+  })
+    .catch(error => {
+        console.log(`Error: ${error}`);
+    });
+
 
 
   $('#login').on('click', function() {
