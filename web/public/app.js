@@ -1,10 +1,10 @@
 $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
-
+const DEVICE_URL = 'http://localhost:5000/api';
+const USER_URL = 'http://localhost:5001/api';
 const users = JSON.parse(localStorage.getItem('users')) || [];
-const USER_URL = `http://localhost:5001/api`;
-const DEVICE_URL = `http://localhost:5000/api`;
+
 
   $('#login').on('click', function() {
     const username = $('#username').val();
@@ -13,7 +13,8 @@ const DEVICE_URL = `http://localhost:5000/api`;
     const exists = users.find(user => user.password === password);
     if (exist == undefined)
     {
-       $("#message").text("User does not Exist.");
+      alert('Email does not Exist. Sign Up');
+      location.href = '/registeration';
     }
     else
     {
@@ -33,6 +34,7 @@ const DEVICE_URL = `http://localhost:5000/api`;
    function SignUp() {
 
       var user_exist =0;
+      var pass_match =0;
       const email = $('#username').val();
       const name = $('#name').val();
       const mobile = $('#mobile').val();
@@ -49,11 +51,20 @@ const DEVICE_URL = `http://localhost:5000/api`;
               user_exist = 1;
   
           }
+          if (pass == confirm)
+          {
+            pass_match = 1;
+          }
       });
       if(user_exist == 1)
       {
-          alert('Email already Exist. SIgn In');
-          location.href = '/signin';
+          alert('Email already Exist. Sign In');
+          location.href = '/login';
+      }
+      else if(pass_match == 0)
+      {
+        alert('Password does not match!!');
+        location.href = '/registration';
       }
       else
       {
@@ -67,7 +78,7 @@ const DEVICE_URL = `http://localhost:5000/api`;
       
         $.post(`${USER_URL}/users`, body)
         .then(response => {
-          location.href = '/signin';
+          location.href = '/login';
         })
         .catch(error => {
           console.error(`Error: ${error}`);
@@ -86,7 +97,7 @@ function DeviceRegister() {
    var device_exist =0;
    const deviceid = $('#deviceid').val();
    const devicename = $('#devicename').val();
-   const devicelocation = $('#devicelocation').val();
+   const devicelocation = $('devicelocation').val();
    $.get(`${DEVICE_URL}/devices`)
    .then(response => {
        response.forEach(device => {
@@ -100,7 +111,7 @@ function DeviceRegister() {
    if(device_exist == 1)
    {
        alert('Device ID alredy Exists. Assign different Id!!');
-           location.href = '/device-register';
+           location.href = '/deviceregister';
    }
    else{
 
@@ -113,14 +124,12 @@ function DeviceRegister() {
    
      $.post(`${DEVICE_URL}/devices`, body)
      .then(response => {
-       location.href = '/landing-page';
+       location.href = '/home1';
      })
      .catch(error => {
        console.error(`Error: ${error}`);
      });
    }
 })
-   
-   
-}
+  }
     
