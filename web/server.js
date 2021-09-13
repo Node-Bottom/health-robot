@@ -19,6 +19,11 @@ app.get('/home1', (req, res) => {
   app.get('/deviceregister', function (req, res) {
     res.sendFile(`${base}/deviceregister.html`);
   });
+
+  app.get('/devicelist', function (req, res) {
+    res.sendFile(`${base}/devicelist.html`);
+  });
+
 app.get('/', function (req, res) {
     res.sendFile(`${base}/home.html`);
   });
