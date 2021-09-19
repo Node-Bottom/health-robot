@@ -115,7 +115,7 @@ function DeviceRegister() {
    var device_exist =0;
    const deviceid = $('#deviceid').val();
    const devicename = $('#devicename').val();
-   const devicelocation = $('devicelocation').val();
+   const devicelocation = $('#devicelocation').val();
    $.get(`${DEVICE_URL}/devices`)
    .then(response => {
        response.forEach(device => {
