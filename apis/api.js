@@ -30,7 +30,7 @@ const mongoose = require('mongoose');
 
 const User = require('./models/users');
 
-mongoose.connect('mongodb+srv://kinshuk:Kinshu123@cluster0.bmsjk.mongodb.net/users?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://kinshuk:Kinshu123@cluster0.8vugi.mongodb.net/users?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get('/api/test', (req, res) => {
     res.send('The API is working!');
