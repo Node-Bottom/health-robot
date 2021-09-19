@@ -2,10 +2,6 @@ $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
 const USER_URL = `http://localhost:5001/api`;
-const DEVICE_URL = `http://localhost:5000/api`; 
-const PRESCIPTION_URL = `http://localhost:5002/api`; 
-const activeuser = JSON.parse(localStorage.getItem('users')) || [];
-const activeaccess = JSON.parse(localStorage.getItem('access')) || [];
 
 $.get(`${DEVICE_URL}/devices`)
     .then(response => {
@@ -117,7 +113,7 @@ function DeviceRegister() {
    var device_exist =0;
    const deviceid = $('#deviceid').val();
    const devicename = $('#devicename').val();
-   const devicelocation = $('devicelocation').val();
+   const devicelocation = $('#devicelocation').val();
    $.get(`${DEVICE_URL}/devices`)
    .then(response => {
        response.forEach(device => {
