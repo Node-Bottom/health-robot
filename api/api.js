@@ -84,9 +84,9 @@ app.get('/api/devices', (req, res) => {
 */
 app.post('/api/devices', (req, res) => {
   const sensorData = [];
-  const { id, deviceid, devicename, devicelocation } = req.body;
+  const { deviceid, devicename, devicelocation } = req.body;
+  console.log(req.body);
   const newDevice = new Device({
-    id,
     deviceid,
     devicename,
     devicelocation,

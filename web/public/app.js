@@ -2,8 +2,6 @@ $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
 const USER_URL = `http://localhost:5001/api`;
-const DEVICE_URL = `http://localhost:5000/api`;
-const users = JSON.parse(localStorage.getItem('users')) || [];
 
 $.get(`${DEVICE_URL}/devices`)
     .then(response => {
@@ -150,4 +148,36 @@ function DeviceRegister() {
    }
 })
   }
-    
+
+function MedRegister() {
+
+   const email = $('#patientID').val();
+   const prescription = $('#prescription').val();
+   const time = $('#time').val();
+   $.get(`${PRESCIPTION_URL}/prescription`)
+   .then(response => {
+       response.forEach(patient => {
+
+
+       
+   });
+   
+   
+
+   
+   const body = {
+      email,
+      prescription,
+      time
+     };
+   
+     $.post(`${PRESCIPTION_URL}/prescription`, body)
+     .then(response => {
+       location.href = '/home1';
+     })
+     .catch(error => {
+       console.error(`Error: ${error}`);
+     });
+   
+})
+  }

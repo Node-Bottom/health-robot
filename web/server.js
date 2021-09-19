@@ -24,6 +24,10 @@ app.get('/home1', (req, res) => {
     res.sendFile(`${base}/devicelist.html`);
   });
 
+  app.get('/prescription', function (req, res) {
+    res.sendFile(`${base}/prescription.html`);
+  });
+
 app.get('/', function (req, res) {
     res.sendFile(`${base}/home.html`);
   });
