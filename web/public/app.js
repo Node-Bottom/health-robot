@@ -1,9 +1,11 @@
 $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
-const DEVICE_URL = 'http://localhost:5000/api';
-const USER_URL = 'http://localhost:5001/api';
-const users = JSON.parse(localStorage.getItem('users')) || [];
+const USER_URL = `http://localhost:5001/api`;
+const DEVICE_URL = `http://localhost:5000/api`; 
+const PRESCIPTION_URL = `http://localhost:5002/api`; 
+const activeuser = JSON.parse(localStorage.getItem('users')) || [];
+const activeaccess = JSON.parse(localStorage.getItem('access')) || [];
 
 $.get(`${DEVICE_URL}/devices`)
     .then(response => {
@@ -21,6 +23,7 @@ $.get(`${DEVICE_URL}/devices`)
     .catch(error => {
         console.log(`Error: ${error}`);
     });
+
 
 
   $('#login').on('click', function() {
@@ -149,4 +152,36 @@ function DeviceRegister() {
    }
 })
   }
-    
+
+function MedRegister() {
+
+   const email = $('#patientID').val();
+   const prescription = $('#prescription').val();
+   const time = $('#time').val();
+   $.get(`${PRESCIPTION_URL}/prescription`)
+   .then(response => {
+       response.forEach(patient => {
+
+
+       
+   });
+   
+   
+
+   
+   const body = {
+      email,
+      prescription,
+      time
+     };
+   
+     $.post(`${PRESCIPTION_URL}/prescription`, body)
+     .then(response => {
+       location.href = '/home1';
+     })
+     .catch(error => {
+       console.error(`Error: ${error}`);
+     });
+   
+})
+  }
