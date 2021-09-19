@@ -28,7 +28,7 @@ const port = 5000;
 const mongoose = require('mongoose');
 
 const Device = require('./models/devices');
-mongoose.connect('mongodb+srv://kinshuk:Kinshu123@cluster0.bmsjk.mongodb.net/devices?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://kinshuk:Kinshu123@cluster0.8vugi.mongodb.net/devices?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get('/api/test', (req, res) => {
   res.send('The API is working!');
