@@ -26,14 +26,38 @@
         <div class="title">
             <h1>HEALTHCARE ROBOT</h1>
         </div>
-        
-        <div class="button">
+
+        <div class="button" id='buttons'>
+
             <a href="/devicelist" class="btn">1. Device Location</a>
             <a href="/deviceregister" class="btn">2. Register Device</a>
-            <a href="/pgtobeadded" class="btn">3. Delete Device</a>
-            <a href="/pgtobeadded" class="btn">4. Device Data</a>
+            <a href="/contactlist" class="btn">3. Emergency Contact List</a>
+            <a href="/prescriptionlist" class="btn">4. Prescription List</a>
             <a href="/prescription" class="btn">5. Prescribe Medication</a>
+            <a href="/contact" class="btn">6. Add new Contact</a>
         </div>
+
+        <script>
+            if (activeaccess[0].toLowerCase() == 'admin') {
+                $('#buttons').append(`
+                <a href="/devicelist" class="btn">1. Device Location</a>
+                <a href="/deviceregister" class="btn">2. Register Device</a>
+                <a href="/contactlist" class="btn">3. Emergency Contact List</a>
+                <a href="/prescriptionlist" class="btn">4. Prescription List</a>
+                <a href="/prescription" class="btn">5. Prescribe Medication</a>
+                <a href="/contact" class="btn">6. Add new Contact</a>
+                `);
+            }
+
+            else{
+                $('#buttons').append(`
+                <a href="/devicelist" class="btn">1. Device Location</a>
+                <a href="/deviceregister" class="btn">2. Register Device</a>
+                <a href="/contactlist" class="btn">3. Emergency Contact List</a>
+                <a href="/prescriptionlist" class="btn">4. Prescription List</a>
+                `);
+            }
+        </script>
 
     </header>
 

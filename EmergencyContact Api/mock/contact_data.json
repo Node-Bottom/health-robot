@@ -1,0 +1,28 @@
+{
+  "emergency_contact": [
+    {
+      "id": 0,
+      "name": "primary contact",
+      "content": "Australia Primary public meergency service number",
+      "number":["000"]
+    },
+    {
+      "id": 1,
+      "name": "special contact",
+      "content": "Text-based emergency service number for deaf person",
+      "number": ["106"]
+    },
+    {
+      "id": 2,
+      "name": "1st family contact",
+      "content": "Family member's phone number",
+      "number": ["+610423566872"]
+    },
+    {
+      "id": 3,
+      "name": "2nd family contact",
+      "content": "Family member's phone number",
+      "number": ["+610423566873"]
+    }
+  ]
+}
