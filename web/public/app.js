@@ -3,7 +3,6 @@ $('#footer').load('footer.html');
 
 const USER_URL = `http://localhost:5001/api`;
 
-
 $.get(`${DEVICE_URL}/devices`)
   .then(response => {
     var count = 1;
@@ -24,6 +23,7 @@ $.get(`${DEVICE_URL}/devices`)
     console.log(`Error: ${error}`);
   });
 
+
 $.get(`${PRESCIPTION_URL}/prescription`)
   .then(response => {
     var count = 1;
@@ -39,41 +39,6 @@ $.get(`${PRESCIPTION_URL}/prescription`)
       }
     })
 
-  })
-  .catch(error => {
-    console.log(`Error: ${error}`);
-  });
-
-  $.get(`${CONTACT_URL}/contact`)
-  .then(response => {
-    var count = 1;
-    response.forEach(contact => {
-      if (contact.email == activeuser[0] || contact.email == undefined) {
-        $('#contacts tbody').append(`
-          <tr>
-            <td>${count++}</td>
-            <td>${contact.name}</td>
-            <td>${contact.content}</td>
-            <td>${contact.number}</td>
-          </tr>`
-        );
-      }
-    })
-
-  })
-  .catch(error => {
-    console.log(`Error: ${error}`);
-  });
-
-
-function Sign_In() {
-  var login = 0;
-  const username = $('#username').val();
-  const password = $('#password').val();
-  $.get(`${USER_URL}/users`)
-    .then(response => {
-
-      response.forEach(user => {
 
         if (user.email == username && user.pass == password) {
           console.log('matched')
