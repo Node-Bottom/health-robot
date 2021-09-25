@@ -2,11 +2,6 @@ $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 
 const USER_URL = `http://localhost:5001/api`;
-const DEVICE_URL = `http://localhost:5000/api`;
-const PRESCIPTION_URL = `http://localhost:5002/api`;
-const CONTACT_URL = `http://localhost:5004/api`;
-const activeuser = JSON.parse(localStorage.getItem('activeuser')) || [];
-const activeaccess = JSON.parse(localStorage.getItem('activeaccess')) || [];
 
 $.get(`${DEVICE_URL}/devices`)
   .then(response => {
@@ -28,6 +23,7 @@ $.get(`${DEVICE_URL}/devices`)
     console.log(`Error: ${error}`);
   });
 
+
 $.get(`${PRESCIPTION_URL}/prescription`)
   .then(response => {
     var count = 1;
@@ -43,41 +39,6 @@ $.get(`${PRESCIPTION_URL}/prescription`)
       }
     })
 
-  })
-  .catch(error => {
-    console.log(`Error: ${error}`);
-  });
-
-  $.get(`${CONTACT_URL}/contact`)
-  .then(response => {
-    var count = 1;
-    response.forEach(contact => {
-      if (contact.email == activeuser[0] || contact.email == undefined) {
-        $('#contacts tbody').append(`
-          <tr>
-            <td>${count++}</td>
-            <td>${contact.name}</td>
-            <td>${contact.content}</td>
-            <td>${contact.number}</td>
-          </tr>`
-        );
-      }
-    })
-
-  })
-  .catch(error => {
-    console.log(`Error: ${error}`);
-  });
-
-
-function Sign_In() {
-  var login = 0;
-  const username = $('#username').val();
-  const password = $('#password').val();
-  $.get(`${USER_URL}/users`)
-    .then(response => {
-
-      response.forEach(user => {
 
         if (user.email == username && user.pass == password) {
           console.log('matched')
@@ -160,126 +121,4 @@ function SignUp() {
 
 function DeviceRegister() {
 
-  var device_exist = 0;
-  var emailMatch = 0;
-  const email = $('#email').val();
-  const deviceid = $('#deviceid').val();
-  const devicename = $('#devicename').val();
-  const devicelocation = $('devicelocation').val();
-  $.get(`${DEVICE_URL}/devices`)
-    .then(response => {
-      response.forEach(device => {
-          if (device.deviceid == deviceid) {
-            device_exist = 1;
-          }
-        
-      });
 
-      if (device_exist == 1) {
-        alert('Device ID alredy Exists. Assign different Id!!');
-        location.href = '/deviceregister';
-      }
-      else {
-
-
-        const body = {
-          email,
-          deviceid,
-          devicename,
-          devicelocation
-        };
-
-        $.post(`${DEVICE_URL}/devices`, body)
-          .then(response => {
-            location.href = '/home1';
-          })
-          .catch(error => {
-            console.error(`Error: ${error}`);
-          });
-      }
-    })
-}
-
-function MedRegister() {
-
-  var emailMatch = 0;
-  const email = $('#patientID').val();
-  const prescription = $('#prescription').val();
-  const time = $('#time').val();
-  $.get(`${PRESCIPTION_URL}/prescription`)
-    .then(response => {
-      $.get(`${USER_URL}/users`)
-      .then(response => {
-  
-        response.forEach(user => {
-  
-          if (user.email == email) {
-            emailMatch = 1;
-          }
-        });
-        if (emailMatch == 1) {
-          const body = {
-            email,
-            prescription,
-            time
-          };
-    
-          $.post(`${PRESCIPTION_URL}/prescription`, body)
-            .then(response => {
-              location.href = '/home1';
-            })
-            .catch(error => {
-              console.error(`Error: ${error}`);
-            });
-  
-        }
-        else {
-          alert(email + ' is not registered!!');
-          location.href = '/prescription';
-        }
-      })
-    })
-}
-
-function EmergencyContact() {
-
-  var emailMatch = 0;
-  const email = $('#email').val();
-  const name = $('#name').val();
-  const content = $('#content').val();
-  const number = $('#number').val();
-  $.get(`${CONTACT_URL}/contact`)
-    .then(response => {
-      $.get(`${USER_URL}/users`)
-      .then(response => {
-  
-        response.forEach(user => {
-  
-          if (user.email == email) {
-            emailMatch = 1;
-          }
-        });
-        if (emailMatch == 1) {
-          const body = {
-            email,
-            name,
-            content,
-            number
-          };
-    
-          $.post(`${CONTACT_URL}/contact`, body)
-            .then(response => {
-              location.href = '/home1';
-            })
-            .catch(error => {
-              console.error(`Error: ${error}`);
-            });
-  
-        }
-        else {
-          alert(email + ' is not registered!!');
-          location.href = '/contact';
-        }
-      })
-    })
-}

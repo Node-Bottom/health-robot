@@ -84,13 +84,13 @@ app.get('/api/devices', (req, res) => {
 */
 app.post('/api/devices', (req, res) => {
   const sensorData = [];
-  const { deviceid, devicename, devicelocation } = req.body;
+  const { email,deviceid, devicename, devicelocation } = req.body;
   console.log(req.body);
   const newDevice = new Device({
+    email,
     deviceid,
     devicename,
-    devicelocation,
-    sensorData
+    devicelocation
   });
   newDevice.save(err => {
     return err

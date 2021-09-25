@@ -3,12 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "contact_api.js",
-"scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1",
-	"start": "nodemon contact_api.js"
-},
-  "author": "Lily",
-  "license": "ISC",
+
   "devDependencies": {
     "nodemon": "^2.0.12"
   }

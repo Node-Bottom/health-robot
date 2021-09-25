@@ -24,13 +24,31 @@ app.get('/home1', (req, res) => {
     res.sendFile(`${base}/devicelist.html`);
   });
 
+  app.get('/contact', function (req, res) {
+    res.sendFile(`${base}/contact.html`);
+  });
+
+  app.get('/contactlist', function (req, res) {
+    res.sendFile(`${base}/contactlist.html`);
+  });
+
+  app.get('/send-command', (req, res) => {
+    res.sendFile(`${base}/send-command.html`);
+    });
+    
   app.get('/prescription', function (req, res) {
     res.sendFile(`${base}/prescription.html`);
+  });
+
+  app.get('/prescriptionlist', function (req, res) {
+    res.sendFile(`${base}/prescriptionlist.html`);
   });
 
 app.get('/', function (req, res) {
     res.sendFile(`${base}/home.html`);
   });
+
+ 
 app.get('*', (req, res) => {
     res.sendFile(`${base}/404.html`);
   });
