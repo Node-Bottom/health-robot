@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="A frontend dashboard for the Healthcare robot" />
+    <meta name="author" content="Harshal Sharma" />
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="home2.css">
+    <title>Node Bottom</title>
+</head>
+
+<body>
+    <header>
+        <div class="main">
+            <div class="logo">
+                <img src="images/Logo-PixTeller.png">
+            </div>
+            <ul>
+                <li><button class="btn" id="logout" onclick="location.href='/'">Log Out</button></li>
+                <li><button class="btn" id="profile" onclick="location.href='/profile'">Profile</button></li>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>HEALTHCARE ROBOT</h1>
+        </div>
+
+        <div class="button" id='buttons'>
+
+            <a href="/devicelist" class="btn">1. Device Location</a>
+            <a href="/deviceregister" class="btn">2. Register Device</a>
+            <a href="/contactlist" class="btn">3. Emergency Contact List</a>
+            <a href="/prescriptionlist" class="btn">4. Prescription List</a>
+            <a href="/prescription" class="btn">5. Prescribe Medication</a>
+            <a href="/contact" class="btn">6. Add new Contact</a>
+        </div>
+
+        <script>
+            if (activeaccess[0].toLowerCase() == 'admin') {
+                $('#buttons').append(`
+                <a href="/devicelist" class="btn">1. Device Location</a>
+                <a href="/deviceregister" class="btn">2. Register Device</a>
+                <a href="/contactlist" class="btn">3. Emergency Contact List</a>
+                <a href="/prescriptionlist" class="btn">4. Prescription List</a>
+                <a href="/prescription" class="btn">5. Prescribe Medication</a>
+                <a href="/contact" class="btn">6. Add new Contact</a>
+                `);
+            }
+
+            else{
+                $('#buttons').append(`
+                <a href="/devicelist" class="btn">1. Device Location</a>
+                <a href="/deviceregister" class="btn">2. Register Device</a>
+                <a href="/contactlist" class="btn">3. Emergency Contact List</a>
+                <a href="/prescriptionlist" class="btn">4. Prescription List</a>
+                `);
+            }
+        </script>
+
+    </header>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

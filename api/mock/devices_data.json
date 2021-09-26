@@ -1,0 +1,54 @@
+{
+  "devices": [
+    {
+      "id": 0,
+      "deviceid" : 2156,
+      "devicename": "Camera",
+      "devicelocation": {
+        "lat":-37.846740,
+        "lon":145.115113
+      },
+      "sensorData": [
+        {
+          "ts": "1529542230",
+          "temp": 12
+        },
+        {
+          "ts": "1529572230",
+          "temp": 17
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "deviceid" : 2279,
+      "devicename": "Clock",
+      "devicelocation": {
+        "lat": 33.812092,
+        "lon": -117.918974
+      },
+      "sensorData": [
+        {
+          "ts": "1529542743",
+          "temp": 14 
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "devicename": "Temperature sensor",
+      "deviceid": 8920,
+      "devicelocation": {
+        "lat": -37.850026,
+        "lon": 145.117683
+      },
+      "sensorData": [
+        {
+          "ts": "1529572230",
+          "temp": 14
+          
+        }
+      ]
+    }
+  ]
+}
