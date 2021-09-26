@@ -1,10 +1,9 @@
-$('#navbar').load('navbar.html');
-$('#footer').load('footer.html');
 
 const USER_URL = `http://localhost:5001/api`;
 const DEVICE_URL = `http://localhost:5000/api`;
 const PRESCIPTION_URL = `http://localhost:5002/api`;
 const CONTACT_URL = `http://localhost:5004/api`;
+const MQTT_URL = 'http://localhost:5005/send-command';
 const activeuser = JSON.parse(localStorage.getItem('activeuser')) || [];
 const activeaccess = JSON.parse(localStorage.getItem('activeaccess')) || [];
 const activeName = JSON.parse(localStorage.getItem('activeName')) || [];
@@ -84,10 +83,10 @@ function Sign_In() {
         if (user.email == username && user.pass == password) {
           console.log('matched')
           login = 1;
-          activeName[0] = user.name;
-          activeMobile[0] = user.mobile;
           activeuser[0] = username;
           activeaccess[0] = user.access;
+          activeMobile[0] = user.mobile;
+          activeName[0]= user.name;
           localStorage.setItem('activeuser', JSON.stringify(activeuser));
           localStorage.setItem('activeaccess', JSON.stringify(activeaccess));
           localStorage.setItem('activeName', JSON.stringify(activeName));
@@ -106,7 +105,6 @@ function Sign_In() {
 
 
 }
-
 
 function SignUp() {
 
@@ -289,4 +287,14 @@ function EmergencyContact() {
         }
       })
     })
+}
+
+function SendCommand()
+{
+  const deviceId = $('#email').val();
+  const command = $('#command').val();
+  $.post(MQTT_URL, { deviceId, command })
+  .then(response => {
+  location.href = '/';
+      })
 }
