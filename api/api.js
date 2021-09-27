@@ -105,6 +105,15 @@ app.get('/docs', (req, res) => {
   res.sendFile(`${__dirname}/public/generated-docs/index.html`);
 });
 
+app.delete('/api/devices', (req,res) => {
+  const deviceid = req.body.deviceid;
+  Device.findOneAndDelete({"deviceid": deviceid }, (err, device) => {
+    return err
+      ? res.send(err)
+      : res.send("Succesfully deleted the device");
+  });
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
