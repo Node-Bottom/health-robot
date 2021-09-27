@@ -4,6 +4,7 @@ const DEVICE_URL = `http://localhost:5000/api`;
 const PRESCIPTION_URL = `http://localhost:5002/api`;
 const CONTACT_URL = `http://localhost:5004/api`;
 const MQTT_URL = 'http://localhost:5005/send-command';
+const DELETE_URL = 'http://localhost:5006/delete';
 const activeuser = JSON.parse(localStorage.getItem('activeuser')) || [];
 const activeaccess = JSON.parse(localStorage.getItem('activeaccess')) || [];
 const activeName = JSON.parse(localStorage.getItem('activeName')) || [];
