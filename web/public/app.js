@@ -298,3 +298,14 @@ function SendCommand()
   location.href = '/';
       })
 }
+
+function DeleteDevice()
+{
+  const deviceId = $('#deviceid').val();
+  
+  $.post(DELETE_URL, { deviceId })
+  .then(response => {
+  location.href = '/';
+      })
+}
+
