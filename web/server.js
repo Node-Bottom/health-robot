@@ -56,6 +56,10 @@ app.get('/', function (req, res) {
     res.sendFile(`${base}/home.html`);
   });
 
+app.get('/deletedevice', (req, res) => {
+    res.sendFile(`${base}/deletedevice.html`);
+  });
+
  
 app.get('*', (req, res) => {
     res.sendFile(`${base}/404.html`);
