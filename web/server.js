@@ -1,3 +1,6 @@
+/**
+ * allows access to different pages, middleware
+ */
 const express = require('express');
 const app = express();
 const port = 3000;
