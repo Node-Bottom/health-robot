@@ -71,7 +71,10 @@ $.get(`${PRESCIPTION_URL}/prescription`)
     console.log(`Error: ${error}`);
   });
 
-
+/**
+ * this function is used to for new users to sign in and access their information. 
+ * if the username and the password match with the current users and passwords in the local storage, access will be granted else it will prompt the user to sign up
+ */
 function Sign_In() {
   var login = 0;
   const username = $('#username').val();
@@ -106,7 +109,10 @@ function Sign_In() {
 
 
 }
-
+/**
+ * The sign up function allows new users to register to the website. Username, name, mobile, password, access will be taken.
+ * The function will check whether is user is already in the system. If so, they will be prompted to login.
+ */
 function SignUp() {
 
   var user_exist = 0;
@@ -163,7 +169,10 @@ function SignUp() {
 
 
 }
-
+/**
+ * The sign up function allows new users to register to the website. Username, name, mobile, password, access will be taken.
+ * The function will check whether is user is already in the system. If so, they will be prompted to login.
+ */
 function DeviceRegister() {
 
   var device_exist = 0;
@@ -205,7 +214,10 @@ function DeviceRegister() {
       }
     })
 }
-
+/**
+ * this function is used to register a prescription to a user, it requires an email, the prescription and the time it was taken
+ * it checks whether the user email is in the database, if the email is not added, a message will pop up indicating there is no such email registered
+ */
 function MedRegister() {
 
   var emailMatch = 0;
@@ -246,7 +258,10 @@ function MedRegister() {
       })
     })
 }
-
+/**
+ * this function is used to create emergency contacts for users of our health robot. We ask for the email, name, content and mobile number
+ * it checks whether the user email is registered, if not there will be a prompt stating that they need to register.
+ */
 function EmergencyContact() {
 
   var emailMatch = 0;
@@ -299,7 +314,9 @@ function SendCommand()
   location.href = '/';
       })
 }
-
+/**
+ * this function is used to delete the devices already registered in the system.
+ *
 function DeleteDevice()
 {
   const deviceId = $('#deviceid').val();
