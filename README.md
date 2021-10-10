@@ -4,50 +4,63 @@ There are two ways to setup. If you want to install all required files together 
 ```bash
 cd web
 npm i
+npm start
 ```
 Open new terminal:
 ```bash
 cd api
 npm i
+npm start
 ```
 
 Open new terminal:
 ```bash
 cd apis
 npm i
+npm start
 ```
 Open new terminal:
 ```bash
 cd apiPrescription
 npm i
+npm start
 ```
 
 Open new terminal:
 ```bash
 cd apiPrescription
 npm i
+npm start
 ```
 
 Open new terminal:
 ```bash
 cd 'EmergencyContact Api'
 npm i
+npm start
 ```
 
 Open new terminal:
 ```bash
 cd randomGenerator
 npm i
+npm start
 ```
 
 Open new terminal:
 ```bash
 cd plotty
 npm i
+npm start
 ```
+
+## If you want to follow complete setup.
+
+You need to open different terminals and then install different packages.
 ## Install Packages
 
 ```bash
+cd web
 npm install express --save
 ```
 
@@ -100,6 +113,55 @@ Run the api
 ```bash
 npm start
 ```
+
+For Presciption api
+
+```bash
+cd apiPrescription
+npm init
+npm install express --save
+npm install nodemon --save-dev
+npm install mongoose --save
+npm start
+```
+
+For Emergency Contact api
+
+```bash
+cd 'EmergencyContact Api'
+npm init
+npm install express --save
+npm install nodemon --save-dev
+npm install mongoose --save
+npm start
+```
+
+For randomGenerator
+
+```bash
+cd randomGenerator
+npm init
+npm install express --save
+npm install nodemon --save-dev
+npm install mongoose --save
+npm install mqtt
+npm install body-parser
+npm install axios
+npm install random-int
+npm start
+```
+
+For plotty
+
+```bash
+cd plotty
+npm init
+npm install express --save
+npm install nodemon --save-dev
+npm install mongoose --save
+npm install express plotly
+npm start
+```
 ## Running Tests
 
 You need to switch to different folder and then run pacakges
@@ -117,42 +179,18 @@ Ruuning the tests
 npm run test
 ```
 
-## MQTT
-
-You need to install some of the packages
-
-```bash
-cd mqttt
-npm install mongoose --save
-npm install mqtt
-npm install body-parser
-npm install axios
-npm install serialport
-```
-
-Start the file
-
-```bash
-npm start
-```
 
 ## Creating Docs
 
 ```bash
 cd api
 npm run doc
-req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 100
 ```
-
-Add a paraphase and change the paraphase in api.js to the given one
 
 ```bash
 cd ../apis
 npm run doc
-req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 100
 ```
-
-Add a paraphase and change the paraphase in api.js to the given one
 
 ## Deployment
 
